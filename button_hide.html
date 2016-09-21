@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang='ja'>
+<head>
+    <meta charset='utf-8'>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+</head>
+<body>
+    <ul>
+    <li class='RaceList'>aa<div class='PickDetail'>AA</div></li>
+    <li class='RaceList'>bb<div class='PickDetail'>BB</div></li>
+    <li class='RaceList'>cc<div class='PickDetail'>CC</div></li>
+    <li class='RaceList'>dd<div class='PickDetail'>DD</div></li>
+    </ul>
+    <script>
+    $(function() {
+
+        // 最初の要素だけ表示、他は非表示 
+        $('.PickDetail').hide();
+        $('.PickDetail').eq(0).fadeIn();
+
+        // 出したり出さなかったり
+        $('.RaceList').on('click', function(){
+          var index = $('.RaceList').index(this);
+          $('.PickDetail').eq(index).slideToggle();
+        });
+
+    });
+    </script>
+</body>
+</html>

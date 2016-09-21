@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang='ja'>
+<head>
+<meta charset='utf-8'>
+<meta http-equiv="Content-Script-Type" content="text/javascript">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<link rel='stylesheet'  href="pager.css" type='text/css'>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="jquery.simplePagination.js"></script>
+<script type="text/javascript" >
+$(function(){
+    $("#paging").pagination({
+        items: 3,
+        displayedPages: 1,
+        cssStyle: 'light-theme',
+        prevText: '<<',
+        nextText: '>>',
+        onPageClick: function(pageNumber){show(pageNumber)}
+    })
+});
+function show(pageNumber){
+  var page="#page-"+pageNumber;
+  $('.selection').hide()
+  $(page).show()
+}
+</script>
+</head>
+
+<body>
+<table class='selection' id='page-1'>
+    <thead>
+        <tr>
+            <th class='dothesort' data-type='string'>aaa<span></span></th>
+            <th class='dothesort' data-type='integer'>aaaa<span></span></th>
+        </tr>
+    </thead>
+</table>
+<table class='selection' id='page-2'>
+    <thead>
+        <tr>
+            <th class='dothesort' data-type='string'>bbb2<span></span></th>
+            <th class='dothesort' data-type='integer'>bbb2<span></span></th>
+        </tr>
+    </thead>
+</table>
+<table class='selection' id='page-3'>
+    <thead>
+        <tr>
+            <th class='dothesort' data-type='string'>ccc3<span></span></th>
+            <th class='dothesort' data-type='integer'>ccc3<span></span></th>
+        </tr>
+    </thead>
+<div class='paging'></div>
+</body>
+</html>

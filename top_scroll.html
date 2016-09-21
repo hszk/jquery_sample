@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang='ja'>
+<head>
+    <meta charset='utf-8'>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+</head>
+<body align='center'>
+    <h1>TOPスクロール</h1>
+    <p>string</p>
+    <p>string</p>
+    <p>string</p>
+    <p>string</p>
+    <p>string</p>
+    <p>string</p>
+    <p>string</p>
+    <p>string</p>
+    <p>string</p>
+    <p>string</p>
+    <p>string</p>
+    <p>string</p>
+    <p>string</p>
+    <p>string</p>
+    <p>string</p>
+    <p>string</p>
+    <p>string</p>
+    <p>string</p>
+    <p>string</p>
+    <p>string</p>
+    <p>string</p>
+    <p>string</p>
+    <p>string</p>
+    <p>string</p>
+    <p>string</p>
+    <p>string</p>
+    <p>string</p>
+    <p>string</p>
+    <p>string</p>
+    <p>string</p>
+    <p>string</p>
+    <p>string</p>
+    <p>string</p>
+    <p>string</p>
+    <p>string</p>
+    <p>string</p>
+    <p>string</p>
+    <p>string</p>
+    <p>string</p>
+    <p>string</p>
+    <p>string</p>
+    <p>string</p>
+    <p>string</p>
+    <p>string</p>
+    <div id='back_to_top' style="position:fixed;right:5px;bottom:5px"><a href='#'>TOPへ</a></div>
+    <div id='pos' style="position:fixed;left:5px;bottom:5px"></div>
+    <script>
+    $(function() {
+
+        // #back_to_topを消す
+        $('#back_to_top').hide();
+
+        // スクロールが十分された#back_to_topを表示、スクロールが戻ったら非表示
+        $(window).scroll(function() {
+            $('#pos').text($(this).scrollTop()); 
+            if($(this).scrollTop() > 60 ) {
+                $('#back_to_top').fadeIn();
+            } else {
+                $('#back_to_top').fadeOut();
+            }
+        });
+
+        // #back_to_topクリックされたら上に戻る
+        $('#back_to_top a').click(function() {
+            $('body').animate({
+                scrollTop:0
+            }, 500);
+            return false;
+        });
+        
+    });
+    </script>
+</body>
+</html>

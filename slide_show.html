@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang='ja'>
+<head>
+    <meta charset='utf-8'>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+</head>
+<body align='center'>
+    <h1>slideshow</h1>
+    <div id='thumbnails'></div>
+    <div id='main'></div>
+    <div id='comment'></div>
+    <script>
+    $(function() {
+        var files = [
+            './images/horse_tumb01.jpg',
+            './images/horse_tumb02.jpg',
+            './images/horse_tumb03.jpg',
+            './images/horse_tumb04.jpg',
+            './images/horse_tumb05.jpg'
+        ];
+        var img;
+
+        var comments = [
+            'こんなうま',
+            'あんなうま',
+            'どんなうま',
+            'そんなうま',
+            'うまうまうま'
+        ];
+        var comment;
+
+        for(var i = 0; i < files.length; i++ ){
+            img = $('<img>').attr('src', files[i]).attr('str', comments[i]).addClass('thumbnail');
+            $('#thumbnails').append(img);
+        }
+
+        $('#main').append(
+            $('<img>').attr('src', files[0])
+        );
+        $('#comment').append(
+            comments[0]
+        );
+
+        $('.thumbnail').click(function() {
+            $('#main img').attr('src', $(this).attr('src'));
+            $('#comment').text($(this).attr('str'));
+        });
+
+    });
+    </script>
+</body>
+</html>

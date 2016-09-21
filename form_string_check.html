@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang='ja'>
+<head>
+    <meta charset='utf-8'>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <style>
+    #memo{
+        width:300px;
+        height:150px;
+    }
+    .warning{
+        color:red;
+    }
+    </style>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+</head>
+<body>
+    <h1>文字数チェッカー</h1>
+    <textarea id='memo'></textarea>
+    <div id='count'></div>
+    <script>
+    (function() {
+        // 文字数
+        var LIMIT=30;
+        // 赤字にする文字数
+        var WARNING=10;
+        // 残りカウント
+        var count = $('#count');
+        // 最初に表示される数
+        count.text(LIMIT);
+
+        function countChars(textarea){
+            // 残り数を動的に表示
+            var remaining = LIMIT - textarea.val().length;
+            count.text(remaining);
+            if(remaining <= WARNING) {
+                // 残り10文字になったら赤字にする
+                count.addClass('warning');
+            } else {
+                count.removeClass('warning');
+            }
+        }
+
+        // メイン処理（keyupはキーボードのキーが上がった時に呼ばれる） 
+        $('#memo').keyup(function() {
+            countChars($(this));
+        });
+
+    })();
+
+    </script>
+</body>
+</html>
